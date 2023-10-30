@@ -44,20 +44,6 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
-    public void ReadMovemntValue(InputAction.CallbackContext context)
-    {
-            velocity = context.ReadValue<Vector2>() * movementSpeed;
-    }
-
-    public void Dash(InputAction.CallbackContext context)
-    {
-        if (canDash)
-        {
-            dashVelocity = dashSpeed * (velocity != Vector2.zero ? velocity.normalized 
-                : new Vector2 (transform.forward.x , transform.forward.z).normalized);
-            StartCoroutine(DashCooldown());
-        }
-    }
 
 
     private IEnumerator DashCooldown()
@@ -85,7 +71,6 @@ public class PlayerMovement : MonoBehaviour
                     dashVelocity = Vector2.zero;
                 }
             }
-
         }
         else
         {

@@ -25,12 +25,15 @@ public class BaseObject : MonoBehaviour
     // Update is called once per frame
     public virtual void Update()
     {
-        if(isMove)
+    }
+    private void FixedUpdate()
+    {
+        if (isMove)
         {
             Move();
         }
-    }
 
+    }
     public virtual void Move()
     {
         if(velocity != Vector3.zero)
@@ -38,7 +41,7 @@ public class BaseObject : MonoBehaviour
             this.angle = Mathf.Atan2(velocity.x, velocity.z) * Mathf.Rad2Deg;
         }
         transform.rotation = Quaternion.Euler(0f, angle, 0f);
-        this.transform.position = this.transform.position + this.velocity * speed * Time.deltaTime;
+        this.transform.position = this.transform.position + this.velocity * speed * Time.fixedDeltaTime;
     }
 
     public virtual void SetTarget(Transform target)

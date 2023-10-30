@@ -36,7 +36,7 @@ public class SciFiProjectileScript : MonoBehaviour
  
             if (hit.gameObject.tag == "Player") // Projectile will destroy objects tagged as Destructible
             {
-                hit.gameObject.GetComponent<PLayObject>().takeDamage(1);
+                hit.gameObject.GetComponent<PlayObject>().TakeDamage(1);
             }
  
             foreach (GameObject trail in trailParticles)

@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PLayObject : BaseObject
+public class PlayObject : BaseObject
 {
-    [SerializeField] protected int MaxHP;
+    [SerializeField] protected int maxHP;
     [SerializeField] protected int HP;
     public bool isAttack;
     public bool isDead;
@@ -14,7 +14,7 @@ public class PLayObject : BaseObject
 
     }
 
-    public virtual void takeDamage(int damage)
+    public virtual void TakeDamage(int damage)
     {
         this.HP -= damage;
         if(this.HP <= 0)

@@ -1,49 +1,98 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class Player : PLayObject
+public class Player : PlayObject
 {
+
+    [Header("---------- Movement ----------")]
+    //[SerializeField] private PlayerInput playerInput;
+    [SerializeField] private Transform pointToLook;
+
+
+    [Header("---------- Dash ----------")]
+
+    [SerializeField] private float dashSpeed;
+    [SerializeField] private float dashTime;
+    [SerializeField] private float dashCD;
+    [SerializeField] private LayerMask hitMask;
+
+    private Vector2 dashVelocity;
+    private bool isDashing = false;
+    private bool canDash = true;
+
     public override void Update()
     {
-        base.Update();
+        ani.SetFloat("Speed", velocity.magnitude);
+        LookAtMouse();
+    }
+    private void FixedUpdate()
+    {
+        if (isDashing)
+        {
+            rb.velocity = new Vector3(dashVelocity.x, rb.velocity.y, dashVelocity.y);
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, rb.velocity.normalized, out hit, rb.velocity.magnitude * Time.fixedDeltaTime, hitMask)) ;
+            {
+                if (hit.collider)
+                {
+                    transform.position = hit.point;
+                    dashVelocity = Vector2.zero;
+                }
+            }
 
-        ani.SetFloat("Speed", (Mathf.Abs(velocity.x) > 0 || Mathf.Abs(velocity.z) > 0) ? 1 : 0);
+        }
+        else
+        {
+            rb.velocity = velocity;
+        }
+
+    }
+    public override void Move()
+    {
+        
     }
     public override void changeState(int state)
     {
         base.changeState(state);
-        Vector3 temp = velocity;
         switch (state)
         {
             case (int)STATE_PLAYER.IDLE:
                 break;
-            case (int)STATE_PLAYER.X_RELEASE:
-                temp.x = 0;
-                velocity = temp;
-                break;
-            case (int)STATE_PLAYER.Z_RELEASE:
-                temp.z = 0;
-                velocity = temp;
-                break;
-            case (int)STATE_PLAYER.RUN_LEFT:
-                temp.x = -1;
-                velocity = temp;
-                break;
-            case (int)STATE_PLAYER.RUN_RIGHT:
-                temp.x = 1;
-                velocity = temp;
-                break;
-            case (int)STATE_PLAYER.RUN_UP:
-                temp.z = 1;
-                velocity = temp;
-                break;
-            case (int)STATE_PLAYER.RUN_DOWN:
-                temp.z = -1;
-                velocity = temp;
-                break;
         }
     }
+
+    public void ReadMovemntValue(InputAction.CallbackContext context)
+    {
+        Vector2 temp =  context.ReadValue<Vector2>() * speed;
+        velocity.x = temp.x;
+        velocity.z = temp.y;
+    }
+
+    public void Dash(InputAction.CallbackContext context)
+    {
+        if (canDash)
+        {
+            dashVelocity = dashSpeed * (  new Vector2( velocity.x, velocity.z) != Vector2.zero ? new Vector2(velocity.x, velocity.z).normalized
+                : new Vector2(transform.forward.x, transform.forward.z).normalized);
+            StartCoroutine(DashCooldown());
+        }
+    }
+    private void LookAtMouse()
+    {
+        transform.LookAt(new Vector3(pointToLook.position.x, transform.position.y, pointToLook.position.z));
+    }
+    private IEnumerator DashCooldown()
+    {
+        canDash = false;
+        isDashing = true;
+        yield return new WaitForSeconds(dashTime);
+        isDashing = false;
+        yield return new WaitForSeconds(dashCD);
+        canDash = true;
+    }
+
 }
 
 

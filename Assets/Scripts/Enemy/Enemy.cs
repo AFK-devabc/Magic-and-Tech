@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : PLayObject
+public class Enemy : PlayObject
 {
     [SerializeField] protected AttackSkill currentSkill;
     [SerializeField] protected List<AttackSkill> skills = new List<AttackSkill>();

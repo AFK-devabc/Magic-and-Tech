@@ -1198,7 +1198,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6067088854715258065}
-  - component: {fileID: 5869396066707281857}
   m_Layer: 0
   m_Name: PlayerController
   m_TagString: Untagged
@@ -1221,19 +1220,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 812815774543157780}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5869396066707281857
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5176337620514831124}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6127944552987d14c9460855eab0fced, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!1 &5436471035077681840
 GameObject:
   m_ObjectHideFlags: 0
@@ -1774,8 +1760,17 @@ MonoBehaviour:
   ani: {fileID: 5965980533070434896}
   velocity: {x: 0, y: 0, z: 0}
   isMove: 0
-  MaxHP: 0
+  maxHP: 0
   HP: 0
+  isAttack: 0
+  isDead: 0
+  pointToLook: {fileID: 0}
+  dashSpeed: 0
+  dashTime: 0
+  dashCD: 0
+  hitMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!136 &1253615624989894902
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1838,7 +1833,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a7075d0e6c3a9247b287cfa696a00d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 0}
+  rb: {fileID: 3989788780716042965}
   pointToLook: {fileID: 0}
   movementSpeed: 0
   dashSpeed: 0
