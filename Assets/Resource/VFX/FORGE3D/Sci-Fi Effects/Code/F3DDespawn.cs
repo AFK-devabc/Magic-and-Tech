@@ -22,7 +22,10 @@ namespace FORGE3D
         {
             // Invokes despawn using timer delay
             if (!DespawnOnMouseUp)
+            {
                 F3DTime.time.AddTimer(DespawnDelay, 1, DespawnOnTimer);
+            }
+                
         }
 
         // OnDespawned called by pool manager 
@@ -53,7 +56,6 @@ namespace FORGE3D
         // Despawn game object this script attached to
         public void Despawn()
         {
-
             F3DPoolManager.Pools["GeneratedPool"].Despawn(transform);
             //F3DPool.instance.Despawn(transform);
         }

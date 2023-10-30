@@ -13,15 +13,15 @@ namespace FORGE3D
         public Transform[] socket;
         public Transform explosionPrefab;
 
-        private F3DMissile.MissileType missileType;
+        public F3DMissile.MissileType missileType;
 
-        public Text missileTypeLabel;
+        //public Text missileTypeLabel;
 
         // Use this for initialization
         private void Start()
         {
-            missileType = F3DMissile.MissileType.Unguided;
-            missileTypeLabel.text = "Missile type: Unguided";
+            //missileType = F3DMissile.MissileType.Unguided;
+            //missileTypeLabel.text = "Missile type: Unguided";
         }
 
         // Spawns explosion
@@ -56,24 +56,42 @@ namespace FORGE3D
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
                 missileType = F3DMissile.MissileType.Unguided;
-                missileTypeLabel.text = "Missile type: Unguided";
+                //missileTypeLabel.text = "Missile type: Unguided";
             }
             else if (Input.GetKeyDown(KeyCode.Alpha2))
             {
                 missileType = F3DMissile.MissileType.Guided;
-                missileTypeLabel.text = "Missile type: Guided";
+                //missileTypeLabel.text = "Missile type: Guided";
             }
             else if (Input.GetKeyDown(KeyCode.Alpha3))
             {
                 missileType = F3DMissile.MissileType.Predictive;
-                missileTypeLabel.text = "Missile type: Predictive";
+                //missileTypeLabel.text = "Missile type: Predictive";
+            }
+        }
+
+        public void SpawnMissile()
+        {
+            var randomSocketId = Random.Range(0, socket.Length);
+            var tMissile = F3DPoolManager.Pools["GeneratedPool"].Spawn(missilePrefab,
+                socket[randomSocketId].position, socket[randomSocketId].rotation, null);
+
+            if (tMissile != null)
+            {
+                var missile = tMissile.GetComponent<F3DMissile>();
+
+                missile.launcher = this;
+                missile.missileType = missileType;
+
+                if (target != null)
+                    missile.target = target;
             }
         }
 
         // Update is called once per frame
         private void Update()
         {
-            ProcessInput();
+            //ProcessInput();
         }
     }
 }

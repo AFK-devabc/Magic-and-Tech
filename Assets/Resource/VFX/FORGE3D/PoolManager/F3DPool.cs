@@ -92,7 +92,7 @@ namespace FORGE3D
                             {
                                 obj.parent = templatesParent[n];
                             }
-                        } 
+                        }
                         if (needBroadcasting && broadcastDespawnName != "")
                             obj.BroadcastMessage(broadcastDespawnName, SendMessageOptions.DontRequireReceiver);
                         break;
@@ -314,8 +314,11 @@ namespace FORGE3D
                     }
 
                     tempTransform.gameObject.SetActive(true);
+                    
                     if (needBroadcasting && broadcastSpawnName != "")
-                        tempTransform.BroadcastMessage(broadcastSpawnName, SendMessageOptions.DontRequireReceiver); 
+                    {
+                        tempTransform.BroadcastMessage(broadcastSpawnName, SendMessageOptions.DontRequireReceiver);
+                    } 
                     return tempTransform;
                 }
             }

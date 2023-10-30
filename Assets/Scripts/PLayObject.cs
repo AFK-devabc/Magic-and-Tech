@@ -6,8 +6,8 @@ public class PLayObject : BaseObject
 {
     [SerializeField] protected int MaxHP;
     [SerializeField] protected int HP;
-    protected bool isAttack;
-    protected bool isDead;
+    public bool isAttack;
+    public bool isDead;
 
     public virtual void Attack()
     {
