@@ -28,14 +28,15 @@ public class SciFiProjectileScript : MonoBehaviour
 
     void OnCollisionEnter(Collision hit)
     {
+        if(hit.gameObject.tag == gameObject.tag) { return; }
         if (!hasCollided)
         {
             hasCollided = true;
             impactParticle = Instantiate(impactParticle, transform.position, Quaternion.FromToRotation(Vector3.up, impactNormal)) as GameObject;
  
-            if (hit.gameObject.tag == "Destructible") // Projectile will destroy objects tagged as Destructible
+            if (hit.gameObject.tag == "Player") // Projectile will destroy objects tagged as Destructible
             {
-                Destroy(hit.gameObject);
+                hit.gameObject.GetComponent<PLayObject>().takeDamage(1);
             }
  
             foreach (GameObject trail in trailParticles)

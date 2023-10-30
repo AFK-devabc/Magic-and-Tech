@@ -158,7 +158,7 @@ namespace FORGE3D
                 step = transform.forward*Time.deltaTime*velocity;
 
                 if (target != null && missileType != MissileType.Unguided &&
-                    Vector3.SqrMagnitude(transform.position - target.position) <= detonationDistance)
+                    Vector3.Distance(transform.position, target.position) <= detonationDistance)
                 {
                     OnHit();
                 }

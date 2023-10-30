@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class AttackSkill : MonoBehaviour
 {
-    [SerializeField] Enemy enemy;
+    [SerializeField] protected Enemy enemy;
     [Header("---------------INFO ATTACK SKILL----------------")]
     [SerializeField] protected float damage;
     protected bool isCountDown;
@@ -17,7 +17,9 @@ public abstract class AttackSkill : MonoBehaviour
     [SerializeField] protected float minRange;
     [SerializeField] protected bool isStopMove;
 
-    public virtual void StartAttack()
+    protected int aniEventCount;
+
+    public virtual void Update()
     {
         if (isCountDown == false)
         {
@@ -34,19 +36,39 @@ public abstract class AttackSkill : MonoBehaviour
         {
             if (isRange == true)
             {
-                float x = Mathf.Abs(enemy.GetTarget().position.x - transform.position.x);
-                if (x >= minRange && x <= maxRange)
+                float dis = Vector3.Distance(enemy.GetTarget().position , transform.position);
+                if (dis >= minRange && dis <= maxRange)
                     isInRange = true;
                 else isInRange = false;
             }
             else isInRange = true;
         }
     }
+
+    public virtual void StartAttack()
+    {
+        if (isStopMove)
+            enemy.isMove = false;
+    }
+
     public virtual void StopAttack()
     {
-
+        enemy.isAttack = false;
+        enemy.isMove = true;
+        if(CD != 0)
+        {
+            isCountDown = false;
+            timeCDStart = 0f;
+        }
     }
+
     public abstract void Attack();
     public abstract void aniEvent();
 
+    public virtual bool isReady()
+    {
+        if (isCountDown && isInRange)
+            return true;
+        return false;
+    }
 }

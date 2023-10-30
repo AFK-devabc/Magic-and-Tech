@@ -6,28 +6,29 @@ public class BaseObject : MonoBehaviour
 {
     [Header("----------------INFO------------------")]
     [SerializeField] protected int damage;
-    [SerializeField] protected int speed;
-    [SerializeField] protected float angle;
+    [SerializeField] protected float speed;
+    [SerializeField] public float angle = 0;
     [SerializeField] protected Transform target;
     [SerializeField] protected int state;
 
     [Header("--------------COMPONENT---------------")]
     [SerializeField] protected Rigidbody rb;
-    [SerializeField] protected Animator ani;
+    [SerializeField] public Animator ani;
 
-    public Vector3 velocity;
-    public bool isMove;
+    public Vector3 velocity = Vector3.zero;
+    public bool isMove = true;
     // Start is called before the first frame update
     public virtual void Start()
     {
-        velocity = Vector3.zero;
-        angle = 0;  
     }
 
     // Update is called once per frame
     public virtual void Update()
     {
-        Move();
+        if(isMove)
+        {
+            Move();
+        }
     }
 
     public virtual void Move()
