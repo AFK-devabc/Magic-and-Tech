@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PLayer : PLayObject
+public class Player : PLayObject
 {
     public override void Update()
     {
