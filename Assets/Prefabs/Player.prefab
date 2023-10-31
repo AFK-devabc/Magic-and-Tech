@@ -1471,7 +1471,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1812936773306678411
 Transform:
   m_ObjectHideFlags: 0
@@ -1584,7 +1584,6 @@ GameObject:
   - component: {fileID: 1211313853303471625}
   - component: {fileID: 1253615624989894902}
   - component: {fileID: 3989788780716042965}
-  - component: {fileID: 7445627625917012900}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1771,6 +1770,7 @@ MonoBehaviour:
   hitMask:
     serializedVersion: 2
     m_Bits: 0
+  body: {fileID: 0}
 --- !u!136 &1253615624989894902
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1821,24 +1821,3 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!114 &7445627625917012900
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8309618581921276240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a7075d0e6c3a9247b287cfa696a00d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 3989788780716042965}
-  pointToLook: {fileID: 0}
-  movementSpeed: 0
-  dashSpeed: 0
-  dashTime: 0
-  dashCD: 0
-  hitMask:
-    serializedVersion: 2
-    m_Bits: 0

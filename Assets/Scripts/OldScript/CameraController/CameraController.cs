@@ -12,7 +12,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float threshold;
 
     [SerializeField] private LayerMask mouseCollLayer;
-
+    [SerializeField] private Transform mouse;
     private void FixedUpdate()
     {
         Ray mouseRay = camera.ScreenPointToRay(Mouse.current.position.ReadValue());
@@ -20,7 +20,7 @@ public class CameraController : MonoBehaviour
         if (Physics.Raycast(mouseRay, out RaycastHit hitInfo, float.MaxValue, mouseCollLayer))
         {
             Vector3 targetDireciton =  - player.position + hitInfo.point;
-
+            mouse.position = hitInfo.point;
             Vector3 direction =( -player.position + hitInfo.point).normalized;
 
             transform.position =  threshold * direction + player.position;

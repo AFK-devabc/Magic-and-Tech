@@ -17,7 +17,7 @@ public class Player : PlayObject
     [SerializeField] private float dashTime;
     [SerializeField] private float dashCD;
     [SerializeField] private LayerMask hitMask;
-
+    [SerializeField] private Transform body;
     private Vector2 dashVelocity;
     private bool isDashing = false;
     private bool canDash = true;
@@ -81,7 +81,7 @@ public class Player : PlayObject
     }
     private void LookAtMouse()
     {
-        transform.LookAt(new Vector3(pointToLook.position.x, transform.position.y, pointToLook.position.z));
+        body.LookAt(new Vector3(pointToLook.position.x, body.position.y, pointToLook.position.z));
     }
     private IEnumerator DashCooldown()
     {
