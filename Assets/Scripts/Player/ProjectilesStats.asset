@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fb0569cab16c1040ae488d4906a6830, type: 3}
   m_Name: ProjectilesStats
   m_EditorClassIdentifier: 
-  id: 
-  movSpeed: 0
+  id: 1
+  movSpeed: 10
   hitMask:
     serializedVersion: 2
     m_Bits: 0
