@@ -8,6 +8,8 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private Weapon weapon;
     [SerializeField] private Transform weaponHolder;
     [SerializeField] private Transform forward;
+    [SerializeField] private Transform shootPoint;
+
     private IObjectPool<ProjectileController> bulletPool;
 
     private bool canExcuteAttack;
@@ -50,7 +52,7 @@ public class PlayerAttack : MonoBehaviour
             ProjectileController bullet = bulletPool.Get();
 
             bullet.transform.forward = new Vector3( forward.forward.x, 0, forward.forward.z);
-            bullet.transform.position = transform.position;
+            bullet.transform.position = shootPoint.position;
 
             StartCoroutine(AttackCountdown());
         }
