@@ -16,4 +16,5 @@ MonoBehaviour:
   movSpeed: 20
   hitMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
+  damage: 1

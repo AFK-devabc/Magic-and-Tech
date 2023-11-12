@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc557275c62ac814fb0cd5712a1faed8, type: 3}
   m_Name: Plasma
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 4760103334752705056, guid: a66dcf36bc6df0c48885fc9c19276640,
+  projectilePrefab: {fileID: 1247892853344285995, guid: 1cbda689bb465ea49b41a3db35577a6d,
     type: 3}
-  weaponPrefab: {fileID: 5074135652131741807, guid: 00d6d39890456984cbe14c356b50bcc4,
+  weaponPrefab: {fileID: 845499787107274691, guid: 39c66c7761a75164395878f36f6dbdf2,
     type: 3}
-  cooldownTime: 0.2
+  cooldownTime: 0.1

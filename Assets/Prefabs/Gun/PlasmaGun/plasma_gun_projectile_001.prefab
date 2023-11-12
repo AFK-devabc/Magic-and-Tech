@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1ed66468ec9647448edc5a648c527cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 11400000, guid: 0bdefe93a4b0c184abd4f726519a7001, type: 2}
+  projectileStats: {fileID: 11400000, guid: 0bdefe93a4b0c184abd4f726519a7001, type: 2}
   hitEffect: {fileID: 19800006, guid: 3b2dcd1db87e3c04fb20ef9bf975fdd4, type: 3}
 --- !u!1 &100002
 GameObject:
