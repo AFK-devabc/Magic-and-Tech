@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Pool;
@@ -10,46 +11,21 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private Transform forward;
     [SerializeField] private Transform shootPoint;
 
-    private IObjectPool<ProjectileController> bulletPool;
-
+    private ProjectileManager projectileManager;
     private bool canExcuteAttack;
     private void Start()
     {
+        projectileManager = ProjectileManager.GetInstance();
         OnWeaponEquip();
         canExcuteAttack = true;
-        bulletPool = new ObjectPool<ProjectileController>(() =>
-        {
-            ProjectileController bullet = Instantiate(weapon.projectilePrefab);
-            bullet.InIt(KillObjectInPool);
-
-            return bullet;
-        }
-        , bullet => bullet.gameObject.SetActive(true)
-        , bullet => bullet.gameObject.SetActive(false)
-        , bullet => Destroy(bullet.gameObject)
-        , false, 20);
-
     }
-
-    private void KillObjectInPool(ProjectileController bullet)
-    {
-        if (bullet.projectileStats.id == weapon.projectilePrefab.projectileStats.id)
-        {
-            bulletPool.Release(bullet);
-        }
-        else
-        {
-            Destroy(bullet.gameObject);
-        }
-    }
-
 
     public void ExcuteAttack(InputAction.CallbackContext context)
     {
         if (context.performed && canExcuteAttack)
         {
             Debug.Log("attack");
-            ProjectileController bullet = bulletPool.Get();
+            ProjectileController bullet = projectileManager.GetProjectile(weapon.projectilePrefab);
 
             bullet.transform.forward = new Vector3( forward.forward.x, 0, forward.forward.z);
             bullet.transform.position = shootPoint.position;
@@ -68,7 +44,6 @@ public class PlayerAttack : MonoBehaviour
     public void EquipWeapon( Weapon weapon)
     {
         this.weapon = weapon;
-        bulletPool.Clear();
     }
 
     private void OnWeaponEquip()

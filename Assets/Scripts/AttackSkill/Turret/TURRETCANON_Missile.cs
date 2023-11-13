@@ -8,7 +8,7 @@ public class TURRETCANON_Missile : AttackSkill
     [Header("----------------MISSILE------------------")]
     //[SerializeField] F3DMissile missileFrefabs;
     //[SerializeField] Transform FirePosition;
-    [SerializeField] F3DMissileLauncher launcher;
+    [SerializeField] ProjectileController projectile;
 
     public override void StartAttack()
     {
@@ -30,7 +30,5 @@ public class TURRETCANON_Missile : AttackSkill
 
     public override void aniEvent()
     {
-        launcher.target = enemy.GetTarget().GetChild(1);
-        launcher.SpawnMissile();
     }
 }
