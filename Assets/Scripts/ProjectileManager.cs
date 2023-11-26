@@ -13,7 +13,6 @@ public class ProjectileManager : MonoBehaviour
     private void KillObjectInPool(ProjectileController bullet)
     {
         projectilePool[bullet.projectileStats.id].Release(bullet);
-        bullet.transform.parent = m_transform;
     }
 
     public ProjectileController GetProjectile(ProjectileController projectile)
@@ -24,11 +23,20 @@ public class ProjectileManager : MonoBehaviour
             {
                 ProjectileController bullet = Instantiate(projectile);
                 bullet.InIt(KillObjectInPool);
-
                 return bullet;
             }
-        , bullet => bullet.gameObject.SetActive(true)
-        , bullet => bullet.gameObject.SetActive(false)
+        , bullet =>
+        {
+            bullet.gameObject.SetActive(true);
+            bullet.transform.SetParent(null);
+
+        }
+        , bullet =>
+        {
+            bullet.transform.parent = m_transform;
+            bullet.gameObject.SetActive(false);
+
+        }
         , bullet => Destroy(bullet.gameObject)
         , false, 20);
         }

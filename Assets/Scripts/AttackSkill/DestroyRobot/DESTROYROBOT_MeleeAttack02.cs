@@ -5,9 +5,16 @@ using UnityEngine;
 public class DESTROYROBOT_MeleeAttack02 : AttackSkill
 {
     [Header("----------------BULLET------------------")]
-    [SerializeField] Bullet bulletFrefabs;
+    [SerializeField] ProjectileController bulletPrefab;
     [SerializeField] float angularDeg = 0f;
     [SerializeField] Transform FirePosition;
+
+    private ProjectileManager projectileManager;
+
+    private void Start()
+    {
+        projectileManager = ProjectileManager.GetInstance();
+    }
 
     public override void StartAttack()
     {
@@ -31,9 +38,11 @@ public class DESTROYROBOT_MeleeAttack02 : AttackSkill
     {
         enemy.angle = Mathf.Atan2(enemy.transform.forward.x, enemy.transform.forward.z) * Mathf.Rad2Deg;
 
-        Bullet bullet = Instantiate(bulletFrefabs, FirePosition.position, Quaternion.identity);
-        bullet.angle = enemy.angle + Random.Range(-angularDeg, angularDeg);
+        ProjectileController bullet = projectileManager.GetProjectile(bulletPrefab);
 
-        Destroy(bullet, 3f);
+        bullet.transform.position = FirePosition.position;
+
+        bullet.transform.LookAt(enemy.GetTarget());
+
     }
 }

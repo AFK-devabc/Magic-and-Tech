@@ -24,7 +24,8 @@ public class ProjectileController : MonoBehaviour
                 Debug.Log("hit");
                 _killAction(this);
                 transform.position = hit.point;
-                hitEffect.Play();
+                if (hitEffect != null)
+                    hitEffect.Play();
                 DoDamage(hit);
             }
         }
