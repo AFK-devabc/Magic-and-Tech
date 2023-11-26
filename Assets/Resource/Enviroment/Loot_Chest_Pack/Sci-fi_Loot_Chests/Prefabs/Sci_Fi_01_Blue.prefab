@@ -179,6 +179,7 @@ GameObject:
   - component: {fileID: 4130474896770920}
   - component: {fileID: 33277898376599612}
   - component: {fileID: 23614641560526492}
+  - component: {fileID: 2427742138929107885}
   m_Layer: 0
   m_Name: Sci_Fi_01_Blue
   m_TagString: Untagged
@@ -252,6 +253,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &2427742138929107885
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1500028686695222}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fb2159855aa7e304ca5e82f9274994fd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1540549658421730
 GameObject:
   m_ObjectHideFlags: 0
