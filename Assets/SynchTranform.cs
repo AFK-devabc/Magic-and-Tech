@@ -12,7 +12,7 @@ public class SynchTranform : MonoBehaviour
         _tranform = GetComponent<Transform>();
     }
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         _tranform.position = targetTranform.position;
         _tranform.rotation = targetTranform.rotation;

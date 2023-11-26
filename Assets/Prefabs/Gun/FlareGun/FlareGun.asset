@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc557275c62ac814fb0cd5712a1faed8, type: 3}
+  m_Name: FlareGun
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 4760103334752705056, guid: a66dcf36bc6df0c48885fc9c19276640,
+    type: 3}
+  weaponPrefab: {fileID: 5074135652131741807, guid: 00d6d39890456984cbe14c356b50bcc4,
+    type: 3}
+  cooldownTime: 0.2

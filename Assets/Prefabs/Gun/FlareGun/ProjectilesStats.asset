@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: ProjectilesStats
   m_EditorClassIdentifier: 
   id: 1
-  movSpeed: 10
+  movSpeed: 20
   hitMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
+  damage: 1

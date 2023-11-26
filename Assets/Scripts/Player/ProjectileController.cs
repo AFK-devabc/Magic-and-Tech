@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ProjectileController : MonoBehaviour
 {
-    [SerializeField] public ProjectileStats projectile;
+    [SerializeField] public ProjectileStats projectileStats;
     [SerializeField] private ParticleSystem hitEffect;  
     protected Action<ProjectileController> _killAction;
 
@@ -17,12 +17,12 @@ public class ProjectileController : MonoBehaviour
     private void FixedUpdate()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position , transform.forward, out hit, projectile.movSpeed * Time.fixedDeltaTime , projectile.hitMask)) 
+        if (Physics.Raycast(transform.position , transform.forward, out hit, projectileStats.movSpeed * Time.fixedDeltaTime , projectileStats.hitMask)) 
         {
             if (hit.collider != null)
             {
-                Debug.Log(hit);
-                //_killAction(this);
+                Debug.Log("hit");
+                _killAction(this);
                 transform.position = hit.point;
                 hitEffect.Play();
                 DoDamage(hit);
@@ -30,11 +30,15 @@ public class ProjectileController : MonoBehaviour
         }
         else 
         {
-            transform.position += projectile.movSpeed * Time.fixedDeltaTime * transform.forward;
+            transform.position += projectileStats.movSpeed * Time.fixedDeltaTime * transform.forward;
         }
     }
-
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawLine(transform.position, transform.position+ transform.forward * projectileStats.movSpeed * Time.fixedDeltaTime);
+    }
     protected void DoDamage(RaycastHit hit)
     {
+        hit.transform.GetComponent<PlayObject>()?.TakeDamage(projectileStats.damage);
     }
 }

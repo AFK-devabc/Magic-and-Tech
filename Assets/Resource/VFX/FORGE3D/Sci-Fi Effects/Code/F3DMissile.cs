@@ -42,6 +42,7 @@ namespace FORGE3D
         private MeshRenderer meshRenderer;
         public F3DMissileLauncher launcher;
 
+        [SerializeField] private int damage = 1;
         private void Awake()
         {
             // Cache transform and get all particle systems attached
@@ -156,15 +157,18 @@ namespace FORGE3D
 
                 // Missile step per frame based on velocity and time
                 step = transform.forward*Time.deltaTime*velocity;
-
+                RaycastHit hit;
                 if (target != null && missileType != MissileType.Unguided &&
                     Vector3.Distance(transform.position, target.position) <= detonationDistance)
                 {
+                    target.GetComponent<PlayObject>()?.TakeDamage(damage);
+
                     OnHit();
                 }
                 else if (missileType == MissileType.Unguided &&
-                         Physics.Raycast(transform.position, transform.forward, step.magnitude*RaycastAdvance, layerMask))
+                         Physics.Raycast(transform.position,transform.forward, out hit, step.magnitude*RaycastAdvance, layerMask))
                 {
+                    hit.transform.GetComponent<PlayObject>()?.TakeDamage(damage);
                     OnHit();
                 }
                 // Nothing hit
