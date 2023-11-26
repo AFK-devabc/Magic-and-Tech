@@ -7,8 +7,15 @@ public class TURRETCANON_Missile : AttackSkill
 {
     [Header("----------------MISSILE------------------")]
     //[SerializeField] F3DMissile missileFrefabs;
-    //[SerializeField] Transform FirePosition;
+    [SerializeField] Transform firePosition;
     [SerializeField] ProjectileController projectile;
+
+    private ProjectileManager projectileManager;
+
+    private void Start()
+    {
+        projectileManager = ProjectileManager.GetInstance();
+    }
 
     public override void StartAttack()
     {
@@ -30,5 +37,11 @@ public class TURRETCANON_Missile : AttackSkill
 
     public override void aniEvent()
     {
+        ProjectileController bullet = projectileManager.GetProjectile(projectile);
+
+        bullet.transform.position = firePosition.position;
+
+        bullet.transform.LookAt(enemy.GetTarget());
+
     }
 }
