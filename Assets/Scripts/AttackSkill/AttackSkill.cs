@@ -54,8 +54,9 @@ public abstract class AttackSkill : MonoBehaviour
     public virtual void StopAttack()
     {
         enemy.isAttack = false;
-        enemy.isMove = true;
-        if(CD != 0)
+        if (isStopMove)
+            enemy.isMove = true;
+        if (CD != 0)
         {
             isCountDown = false;
             timeCDStart = 0f;

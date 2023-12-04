@@ -1,12 +1,11 @@
-using FORGE3D;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class TURRETCANON_Missile : AttackSkill
+public class AutoShoot : AttackSkill
 {
-    [Header("----------------MISSILE------------------")]
-    //[SerializeField] F3DMissile missileFrefabs;
+
+    [Header("----------------Shoot------------------")]
     [SerializeField] Transform firePosition;
     [SerializeField] ProjectileController projectile;
 
@@ -25,7 +24,7 @@ public class TURRETCANON_Missile : AttackSkill
 
     public override void Attack()
     {
-        
+
     }
 
     public override void StopAttack()
@@ -41,7 +40,7 @@ public class TURRETCANON_Missile : AttackSkill
 
         bullet.transform.position = firePosition.position;
 
-        bullet.transform.LookAt(enemy.GetTarget());
+        bullet.transform.LookAt(new Vector3( enemy.GetTarget().position.x, firePosition.position.y, enemy.GetTarget().position.z));
 
     }
 }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1639,7 +1639,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1291503656}
+  m_Father: {fileID: 1291503654}
   m_LocalEulerAnglesHint: {x: 38.884, y: 109.88, z: -81.602}
 --- !u!4 &75578688 stripped
 Transform:
@@ -26428,7 +26428,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camera: {fileID: 1909474495}
-  player: {fileID: 1291503658}
+  player: {fileID: 0}
   threshold: 5
   mouseCollLayer:
     serializedVersion: 2
@@ -30559,7 +30559,7 @@ PrefabInstance:
         type: 3}
       propertyPath: body
       value: 
-      objectReference: {fileID: 1291503655}
+      objectReference: {fileID: 0}
     - target: {fileID: 1211313853303471625, guid: fedaec94305e6b548a70e6d56f4c1b5f,
         type: 3}
       propertyPath: speed
@@ -30779,17 +30779,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1291503657}
+      objectReference: {fileID: 0}
     - target: {fileID: 8297999420957308950, guid: fedaec94305e6b548a70e6d56f4c1b5f,
         type: 3}
       propertyPath: m_ActionEvents.Array.data[2].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1291503659}
+      objectReference: {fileID: 0}
     - target: {fileID: 8297999420957308950, guid: fedaec94305e6b548a70e6d56f4c1b5f,
         type: 3}
       propertyPath: m_ActionEvents.Array.data[4].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1291503657}
+      objectReference: {fileID: 0}
     - target: {fileID: 8297999420957308950, guid: fedaec94305e6b548a70e6d56f4c1b5f,
         type: 3}
       propertyPath: m_ActionEvents.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -30829,71 +30829,22 @@ PrefabInstance:
     m_RemovedGameObjects:
     - {fileID: 5176337620514831124, guid: fedaec94305e6b548a70e6d56f4c1b5f, type: 3}
     m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 3441019678424012800, guid: fedaec94305e6b548a70e6d56f4c1b5f,
+    - targetCorrespondingSourceObject: {fileID: 3311540407984103640, guid: fedaec94305e6b548a70e6d56f4c1b5f,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1631302754}
-    - targetCorrespondingSourceObject: {fileID: 978873383258320715, guid: fedaec94305e6b548a70e6d56f4c1b5f,
+    - targetCorrespondingSourceObject: {fileID: 3311540407984103640, guid: fedaec94305e6b548a70e6d56f4c1b5f,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 74168400}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8309618581921276240, guid: fedaec94305e6b548a70e6d56f4c1b5f,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1291503659}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fedaec94305e6b548a70e6d56f4c1b5f, type: 3}
---- !u!1 &1291503654 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8309618581921276240, guid: fedaec94305e6b548a70e6d56f4c1b5f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1291503653}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1291503655 stripped
+--- !u!4 &1291503654 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 812815774543157780, guid: fedaec94305e6b548a70e6d56f4c1b5f,
+  m_CorrespondingSourceObject: {fileID: 3311540407984103640, guid: fedaec94305e6b548a70e6d56f4c1b5f,
     type: 3}
   m_PrefabInstance: {fileID: 1291503653}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1291503656 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 978873383258320715, guid: fedaec94305e6b548a70e6d56f4c1b5f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1291503653}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1291503657 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1211313853303471625, guid: fedaec94305e6b548a70e6d56f4c1b5f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1291503653}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1291503654}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 632077136a0f36745b993850a8cc287c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1291503658 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3441019678424012800, guid: fedaec94305e6b548a70e6d56f4c1b5f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1291503653}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1291503659
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1291503654}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b42e8f2cefe7e94485a8084d7ed86a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weapon: {fileID: 11400000, guid: 48c462e8ab62f0e48a165f8d9bc2afaf, type: 2}
-  weaponHolder: {fileID: 1631302754}
-  forward: {fileID: 1291503655}
 --- !u!4 &1292516739 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 3f8ff4b98646eae44962d73da7ffda91,
@@ -37706,7 +37657,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1786352205}
-  m_Father: {fileID: 1291503658}
+  m_Father: {fileID: 1291503654}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1631302755
 MonoBehaviour:
