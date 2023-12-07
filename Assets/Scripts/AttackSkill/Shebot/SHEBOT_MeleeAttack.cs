@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class SHEBOT_MeleeAttack : AttackSkill
 {
-    [Header("----------------BULLET------------------")]
-    [SerializeField] Bullet bulletFrefabs;
-    [SerializeField] Transform FirePosition;
+    [Header("----------------Shoot------------------")]
+    [SerializeField] Transform firePosition;
+    [SerializeField] ProjectileController projectile;
 
+    private ProjectileManager projectileManager;
     public override void StartAttack()
     {
         base.StartAttack();
@@ -28,11 +29,11 @@ public class SHEBOT_MeleeAttack : AttackSkill
 
     public override void aniEvent()
     {
-        Bullet bullet = Instantiate(bulletFrefabs, FirePosition.position, Quaternion.identity);
-        enemy.angle = Mathf.Atan2(enemy.transform.forward.x, enemy.transform.forward.z) * Mathf.Rad2Deg;
-        bullet.angle = enemy.angle;
-        //Vector3 temp = enemy.GetTarget().position;
-        //temp.y += 1;
-        //bullet.velocity = (temp - FirePosition.position).normalized;
+        ProjectileController bullet = projectileManager.GetProjectile(projectile);
+
+        bullet.transform.position = firePosition.position;
+
+        bullet.transform.LookAt(new Vector3(enemy.GetTarget().position.x, firePosition.position.y, enemy.GetTarget().position.z));
+
     }
 }

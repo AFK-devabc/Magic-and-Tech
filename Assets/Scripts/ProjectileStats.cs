@@ -12,4 +12,6 @@ public class ProjectileStats : ScriptableObject
     public float movSpeed;
     public LayerMask hitMask;
     public int damage;
+    public float lifeTime;
+    public bool shouldPlayHitEffect;
 }

@@ -6,17 +6,36 @@ using UnityEngine;
 public class ProjectileController : MonoBehaviour
 {
     [SerializeField] public ProjectileStats projectileStats;
-    [SerializeField] private ParticleSystem hitEffect;  
+    [SerializeField] protected ParticleSystem hitEffect;  
     protected Action<ProjectileController> _killAction;
-
+    protected float lifeTime = 1;
     public void InIt(Action<ProjectileController> killAction)
     {
         _killAction = killAction;
     }
 
+    private void OnEnable()
+    {
+        lifeTime = projectileStats.lifeTime;
+
+    }
+
     private void FixedUpdate()
     {
         RaycastHit hit;
+       
+        if(lifeTime > 0)
+        {
+            lifeTime -= Time.fixedDeltaTime;
+        }
+        else
+        {
+            _killAction(this);
+            if(projectileStats.shouldPlayHitEffect)
+                Instantiate(hitEffect, transform.position, Quaternion.identity);
+            return;
+        }
+
         if (Physics.Raycast(transform.position , transform.forward, out hit, projectileStats.movSpeed * Time.fixedDeltaTime , projectileStats.hitMask)) 
         {
             if (hit.collider != null)

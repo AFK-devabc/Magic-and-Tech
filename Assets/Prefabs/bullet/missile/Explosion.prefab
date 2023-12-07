@@ -9773,7 +9773,7 @@ GameObject:
   - component: {fileID: 9095345950881381589}
   - component: {fileID: 2558667913990673048}
   m_Layer: 0
-  m_Name: Explosion_001_Example(Clone)
+  m_Name: Explosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
