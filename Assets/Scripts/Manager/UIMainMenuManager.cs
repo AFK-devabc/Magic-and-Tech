@@ -25,7 +25,16 @@ public class UIMainMenuManager : MonoBehaviour
 
 
     // WINDOW
-    //[SerializeField] GameObject 
+    [SerializeField] GameObject GUNW;
+    [SerializeField] GameObject SKILLW;
+    [SerializeField] GameObject BOOMW;
+    [SerializeField] GameObject SHOPW;
+    [SerializeField] GameObject ShopGunW;
+    [SerializeField] GameObject ShopItemW;
+    [SerializeField] GameObject InventoryW;
+    [SerializeField] GameObject MissionW;
+
+    GameObject currentWindow = null;
 
 
     // Start is called before the first frame update
@@ -38,5 +47,16 @@ public class UIMainMenuManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void OnClickOpenWindow(GameObject window)
+    {
+        if(currentWindow != null)
+        {
+            currentWindow.SetActive(false);
+        }
+        
+        window.SetActive(true);
+        currentWindow = window;
     }
 }
