@@ -2,10 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraFollow : MonoBehaviour
+public class HealthBehavior : MonoBehaviour
 {
-    [SerializeField] Player player;
-    [SerializeField] Vector3 offset;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +13,6 @@ public class CameraFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = player.transform.position + offset;
+        
     }
 }
