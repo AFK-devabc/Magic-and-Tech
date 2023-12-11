@@ -17,6 +17,8 @@ public abstract class AttackSkill : MonoBehaviour
     [SerializeField] protected float minRange;
     [SerializeField] protected bool isStopMove;
 
+    private Transform target;
+
     protected int aniEventCount;
 
     public virtual void Update()
@@ -32,11 +34,11 @@ public abstract class AttackSkill : MonoBehaviour
         }
 
         // is In range
-        if (enemy.GetTarget() != null)
+        if (target != null)
         {
             if (isRange == true)
             {
-                float dis = Vector3.Distance(enemy.GetTarget().position , transform.position);
+                float dis = Vector3.Distance(target.position , transform.position);
                 if (dis >= minRange && dis <= maxRange)
                     isInRange = true;
                 else isInRange = false;
