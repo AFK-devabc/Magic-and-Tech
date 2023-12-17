@@ -18,7 +18,7 @@ public class LockTargetShoot : AttackSkill
     public override void StartAttack()
     {
         base.StartAttack();
-        enemy.ani.SetTrigger("Shoot");
+        //enemy.ani.SetTrigger("Shoot");
     }
 
     public override void Attack()
@@ -29,8 +29,8 @@ public class LockTargetShoot : AttackSkill
     public override void StopAttack()
     {
         base.StopAttack();
-        if (!isReady())
-            enemy.ani.Play("Idle");
+        //if (!isReady())
+            //enemy.ani.Play("Idle");
     }
 
     public override void aniEvent()
@@ -39,7 +39,7 @@ public class LockTargetShoot : AttackSkill
 
         bullet.transform.position = firePosition.position;
 
-        bullet.transform.LookAt(enemy.GetTarget());
+        //bullet.transform.LookAt(enemy.GetTarget());
 
     }
 }

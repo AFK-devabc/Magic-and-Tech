@@ -13,10 +13,10 @@ public class DRONEROBOT_Explode : AttackSkill
     GameObject shockwave;
     public override void StartAttack()
     {
-        if(enemy.isDead) return;    
+        //if(enemy.isDead) return;    
 
         base.StartAttack();
-        enemy.ani.Play("DroneRbAttack");
+        //enemy.ani.Play("DroneRbAttack");
         shockwave = Instantiate(ShockWaveFrefab, this.transform.position, Quaternion.identity);
         
         timeStart = 0f;
@@ -37,7 +37,7 @@ public class DRONEROBOT_Explode : AttackSkill
         Destroy(shockwave);
         GameObject obj = Instantiate(ShockWaveExplodeFrefab, this.transform.position, Quaternion.identity);
         Destroy(obj.gameObject, 2f);
-        enemy.Dead();
+        //enemy.Dead();
     }
 
     public override void aniEvent()

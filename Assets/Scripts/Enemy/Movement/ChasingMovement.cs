@@ -5,10 +5,33 @@ using UnityEngine.AI;
 
 public class ChasingMovement : MovementBehavior
 {
-    [SerializeField] private float minDistance;
-    public override void Move(NavMeshAgent agent, Vector3 posi, Vector3 desPosi)
+    [SerializeField] private List<Transform> walkAroundPosi;
+    private int currentPosition = -1;
+    public override void Move(NavMeshAgent agent, Transform posi, Transform desPosi)
     {
-        Vector3 pos = desPosi - (desPosi - posi).normalized * minDistance;
-        agent.SetDestination(pos);
+        if (desPosi == null)
+        {
+            if (currentPosition < 0)
+            {
+                currentPosition = 0;
+                agent.SetDestination(walkAroundPosi[currentPosition].position);
+            }
+            if (agent.remainingDistance < agent.stoppingDistance)
+            {
+                currentPosition++;
+
+                if (currentPosition >= walkAroundPosi.Count)
+                {
+                    currentPosition = 0;
+                }
+                agent.SetDestination(walkAroundPosi[currentPosition].position);
+
+            }
+        }
+
+        else
+        {
+            agent.SetDestination(desPosi.position);
+        }
     }
 }

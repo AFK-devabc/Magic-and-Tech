@@ -1666,7 +1666,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7a93766ff7713841b6c299764fc763c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
+  controller: {fileID: 6857275874032074601}
   viewRadius: 5
   viewAngle: 100
   targetMask:
@@ -2107,17 +2107,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b6fd2ef24fbfef42b2524763fb065ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
   damage: 1
-  duration: 0
-  CD: 0.2
+  duration: 1
+  CD: 0.5
   isRange: 1
   maxRange: 5
   minRange: 0
-  isStopMove: 0
+  isStopMove: 1
   firePosition: {fileID: 6788476825469457767}
   projectile: {fileID: 5927273209770011281, guid: cb8d24664e943ef45b44c257cf380da2,
     type: 3}
+  animator: {fileID: 2614802105495922729}
 --- !u!1 &4503235040876386018
 GameObject:
   m_ObjectHideFlags: 0
@@ -2417,13 +2417,15 @@ GameObject:
   m_Component:
   - component: {fileID: 213127766541384087}
   - component: {fileID: 2614802105495922729}
-  - component: {fileID: 565293446044577477}
   - component: {fileID: 541950805676169821}
   - component: {fileID: 6857275874032074597}
   - component: {fileID: 6857275874032074600}
+  - component: {fileID: 565293446044577477}
   - component: {fileID: 6857275874032074599}
   - component: {fileID: 6857275874032074598}
   - component: {fileID: 6857275874032074601}
+  - component: {fileID: 6857275874032074603}
+  - component: {fileID: 6857275874032074602}
   m_Layer: 10
   m_Name: Destroyer
   m_TagString: Enemy
@@ -2547,12 +2549,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d1acdd3c409d9843b0ee9262e66349a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement: {fileID: 0}
-  attackBehavior: {fileID: 0}
-  healthBehavior: {fileID: 0}
+  movement: {fileID: 6857275874032074598}
+  attackBehavior: {fileID: 6857275874032074602}
+  healthBehavior: {fileID: 6857275874032074603}
   SetTargetEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6857275874032074602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6422194222621446950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9632b2343902f724787521ddc27ed623, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 6857275874032074601}
+  currentSkill: {fileID: 0}
+  skills:
+  - {fileID: 4489467700987327265}
+  isAttack: 0
+  isDead: 0
+--- !u!114 &6857275874032074603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6422194222621446950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89f1c3aa185e0b644a9e623bfd9f692d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealthPoint: 10
+  healthPoint: 10
 --- !u!4 &7052620746806819794
 Transform:
   m_ObjectHideFlags: 0

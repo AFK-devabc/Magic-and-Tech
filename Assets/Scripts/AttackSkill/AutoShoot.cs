@@ -11,6 +11,11 @@ public class AutoShoot : AttackSkill
 
     private ProjectileManager projectileManager;
 
+
+    [SerializeField] private Animator animator;
+
+    [SerializeField] LayerMask obstacleLayer;
+
     private void Start()
     {
         projectileManager = ProjectileManager.GetInstance();
@@ -19,7 +24,7 @@ public class AutoShoot : AttackSkill
     public override void StartAttack()
     {
         base.StartAttack();
-        enemy.ani.SetTrigger("Shoot");
+        animator.Play("Attack2");
     }
 
     public override void Attack()
@@ -30,17 +35,23 @@ public class AutoShoot : AttackSkill
     public override void StopAttack()
     {
         base.StopAttack();
-        if (!isReady())
-            enemy.ani.Play("Idle");
+        animator.Play("Idle");
     }
 
+    public override bool CanAttack()
+    {
+        Vector3 direction = target.position - firePosition.position;
+        direction.y = 0;
+        bool canattack = Physics.Raycast(firePosition.position - new Vector3(0, firePosition.position.y, 0)
+            , direction, direction.magnitude, obstacleLayer);
+        return !canattack;
+    }
     public override void aniEvent()
     {
         ProjectileController bullet = projectileManager.GetProjectile(projectile);
 
         bullet.transform.position = firePosition.position;
 
-        bullet.transform.LookAt(new Vector3( enemy.GetTarget().position.x, firePosition.position.y, enemy.GetTarget().position.z));
-
+        bullet.transform.LookAt(new Vector3(target.position.x, firePosition.position.y, target.position.z));
     }
 }

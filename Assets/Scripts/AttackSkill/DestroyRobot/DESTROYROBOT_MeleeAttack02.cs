@@ -19,30 +19,30 @@ public class DESTROYROBOT_MeleeAttack02 : AttackSkill
     public override void StartAttack()
     {
         base.StartAttack();
-        enemy.ani.Play("Attack2");
+        //enemy.ani.Play("Attack2");
     }
 
     public override void Attack()
     {
-        enemy.transform.LookAt(enemy.GetTarget());
+        //enemy.transform.LookAt(enemy.GetTarget());
     }
 
     public override void StopAttack()
     {
-        base.StopAttack();
-        if (!isReady())
-            enemy.ani.Play("Idle");
+        //base.StopAttack();
+        //if (!isReady())
+        //    enemy.ani.Play("Idle");
     }
 
     public override void aniEvent()
     {
-        enemy.angle = Mathf.Atan2(enemy.transform.forward.x, enemy.transform.forward.z) * Mathf.Rad2Deg;
+        //enemy.angle = Mathf.Atan2(enemy.transform.forward.x, enemy.transform.forward.z) * Mathf.Rad2Deg;
 
-        ProjectileController bullet = projectileManager.GetProjectile(bulletPrefab);
+        //ProjectileController bullet = projectileManager.GetProjectile(bulletPrefab);
 
-        bullet.transform.position = FirePosition.position;
+        //bullet.transform.position = FirePosition.position;
 
-        bullet.transform.LookAt(enemy.GetTarget());
+        //bullet.transform.LookAt(enemy.GetTarget());
 
     }
 }

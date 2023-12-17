@@ -1,22 +1,25 @@
+using System;
 using UnityEngine;
 using UnityEngine.AI;
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] protected NavMeshAgent agent;
 
-    [SerializeField] protected Transform desPosition;
 
     [SerializeField] protected MovementBehavior behavior;
 
     [SerializeField] private Transform transform;
 
     private bool isStopped = false;
+    protected Transform target;
 
+    [SerializeField] private Animator animator;
     private void FixedUpdate()
     {
         if (!isStopped)
         {
-            behavior.Move(agent, transform.position, desPosition.position);
+            behavior.Move(agent, transform, target);
+            animator.SetFloat("Speed", agent.velocity.sqrMagnitude);
         }
     }
 
@@ -32,4 +35,10 @@ public class EnemyMovement : MonoBehaviour
             agent.enabled = true;
         }
     }
+
+    public void SetTarget(Transform target)
+    {
+        this.target = target;
+    }
+
 }

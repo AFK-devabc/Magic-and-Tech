@@ -6,11 +6,11 @@ using UnityEngine.Events;
 
 public class EnemyController : MonoBehaviour
 {
-    [SerializeField] private EnemyMovement movement;
-    [SerializeField] private AttackBehavior attackBehavior;
-    [SerializeField] private HealthBehavior healthBehavior;
+    [SerializeField] public EnemyMovement movement;
+    [SerializeField] public AttackBehavior attackBehavior;
+    [SerializeField] public HealthBehavior healthBehavior;
 
-   [HideInInspector] public UnityEvent<Transform> SetTargetEvent;
+    [HideInInspector] public UnityEvent<Transform> SetTargetEvent;
 
     private void Awake()
     {
@@ -19,16 +19,9 @@ public class EnemyController : MonoBehaviour
 
     private void Start()
     {
-        SetTargetEvent.AddListener(SetTarget);
-    }
-
-    private void OnEnable()
-    {
-        SetTargetEvent.Invoke(this.transform);
-    }
-
-    private void SetTarget(Transform target)
-    {
-        Debug.Log(target);
+        if (attackBehavior)
+            SetTargetEvent.AddListener(attackBehavior.SetTarget);
+        if (healthBehavior)
+            SetTargetEvent.AddListener(movement.SetTarget);
     }
 }
