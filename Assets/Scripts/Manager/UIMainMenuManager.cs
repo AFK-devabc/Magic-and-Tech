@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
+using UnityEngine.UI;
+using static UnityEditor.PlayerSettings;
 
 public class UIMainMenuManager : MonoBehaviour
 {
@@ -36,6 +39,23 @@ public class UIMainMenuManager : MonoBehaviour
 
     GameObject currentWindow = null;
 
+    // current Equip
+    [Header("---------CURRENT EQUIP-----------")]
+    [SerializeField] public int IDGun;
+    [SerializeField] Text levelGuntext;
+    [SerializeField] Image imgGun;
+
+    [SerializeField] public int IDItem;
+    [SerializeField] Text levelItemtext;
+    [SerializeField] Image imgItem;
+
+    [SerializeField] public int IDWeaponSupport;
+    [SerializeField] Text levelWeaponSupporttext;
+    [SerializeField] Image imgWeaponSupport;
+
+    [Header("---------MESSAGE BOX-------------")]
+    [SerializeField] MessageBox messageBoxFrefabs;
+
 
     // Start is called before the first frame update
     void Start()
@@ -58,5 +78,47 @@ public class UIMainMenuManager : MonoBehaviour
         
         window.SetActive(true);
         currentWindow = window;
+    }
+
+    // load
+    public void Load()
+    {
+
+    }
+
+    // Equipment
+    public void updateSelectGun(int IDGun)
+    {
+        Weapon gun = GunManagerConfig.getInstance().getConfig(IDGun);
+        if(gun != null)
+        {
+            this.IDGun = IDGun;
+            levelGuntext.text = "Level " + gun.level.ToString();
+            imgGun.sprite = gun.avatar;
+        }
+    }
+
+    public void updateSelectItem(int IDItem)
+    {
+        this.IDItem = IDItem;
+    }
+
+    public void updateSelectWeaponSupport(int IDWeaponSupport)
+    {
+        this.IDWeaponSupport = IDWeaponSupport;
+    }
+
+    // Message Box
+    public void OpenMessageBox(string title, string content, Vector3 pos)
+    {
+        MessageBox message = Instantiate(messageBoxFrefabs, pos, this.transform.rotation);
+
+        message.title.text = title;
+        message.message.text = content;
+
+        message.transform.parent = this.transform;
+        message.transform.localScale = new Vector3(1f, 1f, 1f);
+
+        Destroy(message.gameObject, 1f);
     }
 }

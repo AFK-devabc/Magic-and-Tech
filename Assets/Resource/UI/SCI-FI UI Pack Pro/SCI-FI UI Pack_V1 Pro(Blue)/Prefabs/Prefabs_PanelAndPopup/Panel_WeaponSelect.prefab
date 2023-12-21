@@ -388,6 +388,7 @@ MonoBehaviour:
   b: 1
   slider: {fileID: 0}
   speed: 0.3
+  percent: 1
 --- !u!1 &3739218390037133884
 GameObject:
   m_ObjectHideFlags: 0
@@ -1799,6 +1800,7 @@ MonoBehaviour:
   b: 1
   slider: {fileID: 0}
   speed: 0.35
+  percent: 1
 --- !u!1 &3739218390870307482
 GameObject:
   m_ObjectHideFlags: 0
@@ -2437,6 +2439,7 @@ MonoBehaviour:
   b: 1
   slider: {fileID: 0}
   speed: 0.6
+  percent: 1
 --- !u!1 &3739218391322272014
 GameObject:
   m_ObjectHideFlags: 0
@@ -3324,6 +3327,7 @@ MonoBehaviour:
   b: 1
   slider: {fileID: 0}
   speed: 0.5
+  percent: 1
 --- !u!1 &3739218392043892065
 GameObject:
   m_ObjectHideFlags: 0
@@ -3509,7 +3513,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -11.299988, y: 97.69998}
-  m_SizeDelta: {x: 463.36914, y: 103.03711}
+  m_SizeDelta: {x: 455, y: 103.03711}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8081719703409087487
 CanvasRenderer:

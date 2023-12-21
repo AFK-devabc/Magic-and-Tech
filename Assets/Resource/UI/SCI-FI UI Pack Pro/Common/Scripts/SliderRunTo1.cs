@@ -9,13 +9,13 @@ public class SliderRunTo1 : MonoBehaviour
 	 public Slider slider;
 	 public float speed=0.5f;
 
-  float time =0f;
+	float time =0f;
+	public float percent = 1f;
   
-  void Start()
-  {
-	  
-	slider = GetComponent<Slider>();
-  }
+	void Start()
+	{
+		slider = GetComponent<Slider>();
+	}
   
     void Update()
     {
@@ -24,12 +24,13 @@ public class SliderRunTo1 : MonoBehaviour
 			time+=Time.deltaTime*speed;
 			slider.value = time;
 			
-        if(time>1)
-		{
-           
-			time=0;
+			if(time> percent)
+			{
+				slider.value = percent;
+				b = false;
+				time = 0;
+			}
 		}
-    }
 	}
 	
 	
