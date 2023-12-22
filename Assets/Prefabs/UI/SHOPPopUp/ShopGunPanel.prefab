@@ -68,7 +68,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3ac7ebb07ae41f249b9b2c0d96ed818f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4c7d810f70a420b44b3f57e91290ca49, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -107,11 +107,11 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 55ef94b3e64f3ba4c92b1563ab65d28c,
+    m_HighlightedSprite: {fileID: 21300000, guid: 7dd5355d94b13a34a8f85f7daad417a6,
       type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: 55ef94b3e64f3ba4c92b1563ab65d28c, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: 55ef94b3e64f3ba4c92b1563ab65d28c, type: 3}
-    m_DisabledSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 21300000, guid: 7dd5355d94b13a34a8f85f7daad417a6, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: 7dd5355d94b13a34a8f85f7daad417a6, type: 3}
+    m_DisabledSprite: {fileID: 21300000, guid: 4c7d810f70a420b44b3f57e91290ca49, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -1099,6 +1099,7 @@ MonoBehaviour:
   NameGun: {fileID: 1932392056315516858}
   img: {fileID: 4119055253722460722}
   coinText: {fileID: 7727901505571911894}
+  Pwindow: {fileID: 0}
   ID: 1
 --- !u!1 &3123255403837588666
 GameObject:
