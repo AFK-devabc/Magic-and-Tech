@@ -52,7 +52,6 @@ public class Gun_panel_Popup : MonoBehaviour
     public void ONUpgrade()
     {
         gunUprapeWindow.gameObject.SetActive(true);
-
         gunUprapeWindow.setGun(ID);
     }
 }

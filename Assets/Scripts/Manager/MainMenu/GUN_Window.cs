@@ -6,13 +6,13 @@ using UnityEngine.UI;
 public class GUN_Window : MonoBehaviour
 {
     [Header("---------COMPONENT---------")]
-    [SerializeField] GameObject content;
+    [SerializeField] protected GameObject content;
 
     [Header("--------PREFABS----------")]
-    [SerializeField] Gun_panel_Popup GunPanelPrefab;
+    [SerializeField] Gun_panel_Popup PanelPrefab;
 
     [Header("------------WINDOW----------")]
-    [SerializeField] GunUpgradePopup gunUpgradePopupWindow;
+    [SerializeField] GunUpgradePopup UpgradePopupWindow;
 
 
     // Start is called before the first frame update
@@ -36,9 +36,9 @@ public class GUN_Window : MonoBehaviour
         {
             foreach (Weapon weapon in lstGN)
             {
-                Gun_panel_Popup gunpanel = Instantiate(GunPanelPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+                Gun_panel_Popup gunpanel = Instantiate(PanelPrefab, new Vector3(0, 0, 0), Quaternion.identity);
                 gunpanel.SetData(weapon);
-                gunpanel.gunUprapeWindow = gunUpgradePopupWindow;
+                gunpanel.gunUprapeWindow = UpgradePopupWindow;
                 gunpanel.transform.parent = content.transform;
                 gunpanel.transform.localScale = new Vector3(1f, 1f, 1f);
             }

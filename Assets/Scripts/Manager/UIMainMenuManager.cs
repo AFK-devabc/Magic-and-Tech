@@ -46,7 +46,8 @@ public class UIMainMenuManager : MonoBehaviour
     [SerializeField] Image imgGun;
 
     [SerializeField] public int IDItem;
-    [SerializeField] Text levelItemtext;
+    [SerializeField] Text nameItemtext;
+    [SerializeField] Text quanityItemtext;
     [SerializeField] Image imgItem;
 
     [SerializeField] public int IDWeaponSupport;
@@ -100,7 +101,13 @@ public class UIMainMenuManager : MonoBehaviour
 
     public void updateSelectItem(int IDItem)
     {
-        this.IDItem = IDItem;
+        Item item = ItemManagerConfig.getInstance().getConfig(IDItem);
+        if(item != null)
+        {
+            this.IDItem = IDItem;
+            nameItemtext.text = item.name;
+            quanityItemtext.text = "Quanity: "+ item.quanity.ToString();
+        }
     }
 
     public void updateSelectWeaponSupport(int IDWeaponSupport)
