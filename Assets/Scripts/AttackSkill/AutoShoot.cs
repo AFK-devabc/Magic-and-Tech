@@ -10,11 +10,10 @@ public class AutoShoot : AttackSkill
     [SerializeField] ProjectileController projectile;
 
     private ProjectileManager projectileManager;
-
-
     [SerializeField] private Animator animator;
-
     [SerializeField] LayerMask obstacleLayer;
+
+    [SerializeField] private string attackAni;
 
     private void Start()
     {
@@ -24,20 +23,13 @@ public class AutoShoot : AttackSkill
     public override void StartAttack()
     {
         base.StartAttack();
-        animator.Play("Attack2");
+        animator.Play(attackAni);
     }
 
     public override void Attack()
     {
 
     }
-
-    public override void StopAttack()
-    {
-        base.StopAttack();
-        animator.Play("Idle");
-    }
-
     public override bool CanAttack()
     {
         Vector3 direction = target.position - firePosition.position;

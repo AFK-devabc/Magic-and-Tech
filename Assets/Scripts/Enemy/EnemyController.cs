@@ -21,7 +21,7 @@ public class EnemyController : MonoBehaviour
     {
         if (attackBehavior)
             SetTargetEvent.AddListener(attackBehavior.SetTarget);
-        if (healthBehavior)
+        if (movement)
             SetTargetEvent.AddListener(movement.SetTarget);
     }
 }
