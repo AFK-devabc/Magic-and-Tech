@@ -47,19 +47,19 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 1244dbcf0e1b5e54aba921c36fc073e9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 2a00e72d9b2a94f40b312bd6b87ae89c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: f1b897ba0793c1a48bf51e00799bb72c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 6de28126b5b849a4fb204397e242a862, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -107,12 +107,12 @@ Material:
     - _SrcBlendAlpha: 1
     - _Surface: 1
     - _UVSec: 0
-    - _UseAoMap: 0
-    - _UseColorMap: 0
+    - _UseAoMap: 1
+    - _UseColorMap: 1
     - _UseEmissiveMap: 0
-    - _UseMetallicMap: 0
-    - _UseNormalMap: 0
-    - _UseRoughnessMap: 0
+    - _UseMetallicMap: 1
+    - _UseNormalMap: 1
+    - _UseRoughnessMap: 1
     - _WorkflowMode: 1
     - _ZWrite: 0
     m_Colors:
