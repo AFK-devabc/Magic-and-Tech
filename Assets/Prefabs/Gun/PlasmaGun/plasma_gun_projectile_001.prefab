@@ -44,11 +44,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c1ed66468ec9647448edc5a648c527cf, type: 3}
+  m_Script: {fileID: 11500000, guid: fda14633c50dd4043af7f0ba7226da91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   projectileStats: {fileID: 11400000, guid: 0bdefe93a4b0c184abd4f726519a7001, type: 2}
-  hitEffect: {fileID: 19800006, guid: 3b2dcd1db87e3c04fb20ef9bf975fdd4, type: 3}
+  hitEffect: {fileID: 3875285796546157926, guid: 0926fb975890cdf4c843c26e85436968,
+    type: 3}
 --- !u!1 &100002
 GameObject:
   m_ObjectHideFlags: 0
@@ -5090,7 +5091,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 87c81e7bb8790604a831e3bc5f4740a2, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10016,7 +10016,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 7533a2a9cc9b5454f9d8566495adea12, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14978,7 +14977,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 48c721d303a528046bc532196a5e4c6d, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -19907,7 +19905,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 20e5ca11746a838428ad241b0a4271b3, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

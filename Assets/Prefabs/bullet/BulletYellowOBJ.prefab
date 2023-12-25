@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 13550246}
   - component: {fileID: 5477538}
   - component: {fileID: 11442042}
-  - component: {fileID: -264397595737766791}
   m_Layer: 10
   m_Name: BulletYellowOBJ
   m_TagString: Player
@@ -109,24 +108,3 @@ MonoBehaviour:
   muzzleParticle: {fileID: 109106, guid: 3fcbc3d2087395d4abd3ca66488a608d, type: 3}
   trailParticles: []
   impactNormal: {x: 0, y: 0, z: 0}
---- !u!114 &-264397595737766791
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 154426}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d89b2ce5685af404cbf131082523ff3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 0
-  speed: 20
-  angle: 0
-  target: {fileID: 0}
-  state: 0
-  rb: {fileID: 5477538}
-  ani: {fileID: 0}
-  velocity: {x: 0, y: 0, z: 0}
-  isMove: 1

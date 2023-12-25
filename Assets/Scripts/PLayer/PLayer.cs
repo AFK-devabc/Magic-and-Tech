@@ -1,10 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Player : PlayObject
+public class Player : MonoBehaviour
 {
+    [Header("----------------INFO------------------")]
+    [SerializeField] protected float speed;
+
+    [Header("--------------COMPONENT---------------")]
+    [SerializeField] protected Rigidbody rb;
+    [SerializeField] public Animator ani;
+
+    public Vector3 velocity = Vector3.zero;
+    public bool isMove = true;
+    public bool isAttack;
+    public bool isDead;
 
     [Header("---------- Movement ----------")]
     //[SerializeField] private PlayerInput playerInput;
@@ -18,13 +30,35 @@ public class Player : PlayObject
     [SerializeField] private float dashCD;
     [SerializeField] private LayerMask hitMask;
     [SerializeField] private Transform body;
-    private Vector2 dashVelocity;
+    private Vector2 dashVelocity, forward = Vector2.zero, right = Vector2.zero;
     private bool isDashing = false;
     private bool canDash = true;
 
-    public override void Update()
+  private  Vector2 directionWithLook = Vector2.zero;
+
+    public void Update()
     {
-        ani.SetFloat("Speed", velocity.magnitude);
+
+
+        ani.SetFloat("speed", velocity.sqrMagnitude);
+        if(velocity.sqrMagnitude > 0 )
+        {
+
+            directionWithLook.x = pointToLook.position.x - transform.position.x;
+            directionWithLook.y = pointToLook.position.z - transform.position.z;
+
+            Vector2 velocityRight = new Vector2(velocity.z, -velocity.x);
+
+
+            float forwardAngle = Vector3.Angle(directionWithLook, velocity);
+            float rightAngle = Vector3.Angle(directionWithLook, velocityRight);
+
+            ani.SetFloat("forwardAngle", forwardAngle);
+            ani.SetFloat("rightAngle", rightAngle);
+
+        }
+
+
         LookAtMouse();
     }
     private void FixedUpdate()
@@ -33,7 +67,7 @@ public class Player : PlayObject
         {
             rb.velocity = new Vector3(dashVelocity.x, rb.velocity.y, dashVelocity.y);
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, rb.velocity.normalized, out hit, rb.velocity.magnitude * Time.fixedDeltaTime, hitMask)) ;
+            if (Physics.Raycast(transform.position, rb.velocity.normalized, out hit, rb.velocity.magnitude * Time.fixedDeltaTime, hitMask));
             {
                 if (hit.collider)
                 {
@@ -49,18 +83,9 @@ public class Player : PlayObject
         }
 
     }
-    public override void Move()
+    public void Move()
     {
         
-    }
-    public override void changeState(int state)
-    {
-        base.changeState(state);
-        switch (state)
-        {
-            case (int)STATE_PLAYER.IDLE:
-                break;
-        }
     }
 
     public void ReadMovemntValue(InputAction.CallbackContext context)
@@ -92,17 +117,4 @@ public class Player : PlayObject
         yield return new WaitForSeconds(dashCD);
         canDash = true;
     }
-
-}
-
-
-public enum STATE_PLAYER
-{
-    IDLE = 0,
-    RUN_LEFT = 1,
-    RUN_RIGHT = 2,
-    X_RELEASE =3,
-    RUN_UP = 4,
-    RUN_DOWN = 5,
-    Z_RELEASE = 6
 }

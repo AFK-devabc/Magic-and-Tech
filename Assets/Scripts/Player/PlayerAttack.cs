@@ -11,8 +11,11 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private Transform forward;
     [SerializeField] private Transform shootPoint;
 
+    [SerializeField] private Animator animator;
     private ProjectileManager projectileManager;
     private bool canExcuteAttack;
+
+
     private void Start()
     {
         projectileManager = ProjectileManager.GetInstance();
@@ -24,7 +27,6 @@ public class PlayerAttack : MonoBehaviour
     {
         if (context.performed && canExcuteAttack)
         {
-            Debug.Log("attack");
             ProjectileController bullet = projectileManager.GetProjectile(weapon.projectilePrefab);
 
             bullet.transform.forward = new Vector3( forward.forward.x, 0, forward.forward.z);

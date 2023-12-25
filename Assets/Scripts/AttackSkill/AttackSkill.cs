@@ -4,71 +4,76 @@ using UnityEngine;
 
 public abstract class AttackSkill : MonoBehaviour
 {
-    [SerializeField] protected Enemy enemy;
-    [Header("---------------INFO ATTACK SKILL----------------")]
-    [SerializeField] protected float damage;
+    [SerializeField] public float damage;
     protected bool isCountDown;
-    protected bool isInRange;
-    [SerializeField] protected float duration;
-    [SerializeField] protected float CD;
+    [SerializeField] public float duration;
+    [SerializeField] public float CD;
     protected float timeCDStart;
-    [SerializeField] protected bool isRange;
-    [SerializeField] protected float maxRange;
-    [SerializeField] protected float minRange;
-    [SerializeField] protected bool isStopMove;
+    [SerializeField] public bool isRange;
+    [SerializeField] public float maxRange;
+    [SerializeField] public float minRange;
+    [SerializeField] public bool isStopMove;
+
+    protected Transform target;
 
     protected int aniEventCount;
 
+    protected bool isAttacking = false;
+
     public virtual void Update()
     {
-        if (isCountDown == false)
+        if (isCountDown == true)
         {
             if (timeCDStart > CD)
             {
-                isCountDown = true;
+                isCountDown = false;
                 timeCDStart = 0f;
             }
             else timeCDStart += Time.deltaTime;
         }
 
         // is In range
-        if (enemy.GetTarget() != null)
-        {
-            if (isRange == true)
-            {
-                float dis = Vector3.Distance(enemy.GetTarget().position , transform.position);
-                if (dis >= minRange && dis <= maxRange)
-                    isInRange = true;
-                else isInRange = false;
-            }
-            else isInRange = true;
-        }
     }
 
-    public virtual void StartAttack()
-    {
-        if (isStopMove)
-            enemy.isMove = false;
-    }
 
     public virtual void StopAttack()
     {
-        enemy.isAttack = false;
-        enemy.isMove = true;
-        if(CD != 0)
+        isAttacking = false;
+        if (CD > 0f)
         {
-            isCountDown = false;
-            timeCDStart = 0f;
+            timeCDStart = Time.time;
+            isCountDown = true;
         }
     }
+    public virtual void StartAttack()
+    {
+        isAttacking = true;
+    }
+    public virtual void Attack() { }
+    public virtual void aniEvent() { }
 
-    public abstract void Attack();
-    public abstract void aniEvent();
+    public void SetTarget(Transform target)
+    {
+        this.target = target;
+    }
 
     public virtual bool isReady()
     {
-        if (isCountDown && isInRange)
+        if (!isAttacking && !isCountDown && IsInRange()&& CanAttack())
             return true;
+        return false;
+    }
+
+    public virtual bool CanAttack() { return true; }
+
+    private bool IsInRange()
+    {
+        if (target != null)
+        {
+                float dis = Vector3.Distance(target.position, transform.position);
+                if (  dis >= minRange && dis <= maxRange)
+                    return true;
+        }
         return false;
     }
 }
