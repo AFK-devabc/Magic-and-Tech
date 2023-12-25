@@ -7,9 +7,11 @@ public class SHOPITEM_Window : MonoBehaviour
     [Header("------------COMPONENT---------------")]
     [SerializeField] GameObject content;
 
+    [Header("------------WINDOW------------------")]
+    [SerializeField] Item_Buy_Window ItembuyW;
+
     [Header("------------FREFABS-----------------")]
     [SerializeField] Shop_Item_Panel ItemPanel;
-
     [SerializeField] List<GameObject> lstItem;
 
     private void Start()
@@ -37,6 +39,7 @@ public class SHOPITEM_Window : MonoBehaviour
 
                 itempanel.transform.parent = content.transform;
                 itempanel.Pwindow = this;
+                itempanel.ItembuyW = ItembuyW;
 
                 itempanel.transform.localScale = new Vector3(1f, 1f, 1f);
 

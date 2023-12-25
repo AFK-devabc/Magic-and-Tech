@@ -14,8 +14,8 @@ public class Item_Panel_PopUp : MonoBehaviour
     public int ID;
 
 
-    //[Header("--------WINDOW-----------")]
-    //[SerializeField] public GunUpgradePopup gunUprapeWindow;
+    [Header("--------WINDOW-----------")]
+    [SerializeField] public Item_Buy_Window itemBuyWindow;
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +43,15 @@ public class Item_Panel_PopUp : MonoBehaviour
         Quanity.text = item.quanity.ToString();
     }
 
+    public void UpdateQuanity()
+    {
+        Item item = ItemManagerConfig.getInstance().getConfig(ID);
+        if (item != null)
+        {
+            Quanity.text = item.quanity.ToString();
+        }
+    }
+
     public void OnSelect()
     {
         UIMainMenuManager.getInstance().updateSelectItem(ID);
@@ -50,6 +59,8 @@ public class Item_Panel_PopUp : MonoBehaviour
 
     public void OnAddBtn()
     {
-
+        itemBuyWindow.gameObject.SetActive(true);   
+        itemBuyWindow.setItemData(ID);
+        itemBuyWindow.parentW = this;
     }
 }

@@ -24,19 +24,6 @@ public class UIMainMenuManager : MonoBehaviour
         instance = this;
     }
 
-    // PROPERTY
-
-
-    // WINDOW
-    [SerializeField] GameObject GUNW;
-    [SerializeField] GameObject SKILLW;
-    [SerializeField] GameObject BOOMW;
-    [SerializeField] GameObject SHOPW;
-    [SerializeField] GameObject ShopGunW;
-    [SerializeField] GameObject ShopItemW;
-    [SerializeField] GameObject InventoryW;
-    [SerializeField] GameObject MissionW;
-
     GameObject currentWindow = null;
 
     // current Equip
@@ -79,7 +66,7 @@ public class UIMainMenuManager : MonoBehaviour
         
         window.SetActive(true);
         currentWindow = window;
-    }
+    } 
 
     // load
     public void Load()
@@ -107,6 +94,7 @@ public class UIMainMenuManager : MonoBehaviour
             this.IDItem = IDItem;
             nameItemtext.text = item.name;
             quanityItemtext.text = "Quanity: "+ item.quanity.ToString();
+            imgItem.sprite = item.avatar;
         }
     }
 

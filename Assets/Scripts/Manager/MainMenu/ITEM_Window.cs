@@ -10,8 +10,9 @@ public class SKILL_Window : MonoBehaviour
     [Header("--------PREFABS----------")]
     [SerializeField] Item_Panel_PopUp PanelPrefab;
 
-    //[Header("------------WINDOW----------")]
-    //[SerializeField] GunUpgradePopup UpgradePopupWindow;
+    [Header("------------WINDOW----------")]
+    [SerializeField] Item_Buy_Window ItemBuyWindow;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,9 +25,25 @@ public class SKILL_Window : MonoBehaviour
         
     }
 
+    private void OnEnable()
+    {
+        Load();
+    }
+
     // function
+    public void clear()
+    {
+        Transform[] allChildren = content.GetComponentsInChildren<Transform>(true);
+        foreach (Transform child in allChildren)
+        {
+            if(child != content.transform)
+                Destroy(child.gameObject); 
+        }
+    }
+
     public void Load()
     {
+        clear();
         List<Item> lstGN = ItemManagerConfig.getInstance().getConfigsOwn();
 
         if (lstGN != null)
@@ -35,13 +52,12 @@ public class SKILL_Window : MonoBehaviour
             {
                 Item_Panel_PopUp itempanel = Instantiate(PanelPrefab, new Vector3(0, 0, 0), Quaternion.identity);
                 itempanel.SetData(item);
-                //itempanel.gunUprapeWindow = UpgradePopupWindow;
+                itempanel.itemBuyWindow = ItemBuyWindow;
                 itempanel.transform.parent = content.transform;
                 itempanel.transform.localScale = new Vector3(1f, 1f, 1f);
             }
         }
     }
-
 
     public void OnExitBtnClick()
     {
