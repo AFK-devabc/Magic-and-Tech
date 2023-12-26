@@ -24,6 +24,7 @@ namespace SciFiArsenal
 		IEnumerator EffectLoop()
 		{
 			GameObject effectPlayer = (GameObject) Instantiate(chosenEffect, transform.position, transform.rotation);
+			effectPlayer.transform.localScale = new Vector3 (10f, 10f, 10f);
 
 			yield return new WaitForSeconds(loopTimeLimit);
 

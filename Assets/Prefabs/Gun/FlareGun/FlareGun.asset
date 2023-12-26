@@ -12,8 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc557275c62ac814fb0cd5712a1faed8, type: 3}
   m_Name: FlareGun
   m_EditorClassIdentifier: 
+  ID: 1
+  Name: Rifle
+  type: 1
+  avatar: {fileID: 21300000, guid: 6dd312becefc3ca4fa45cbde589f42f9, type: 3}
   projectilePrefab: {fileID: 4760103334752705056, guid: a66dcf36bc6df0c48885fc9c19276640,
     type: 3}
   weaponPrefab: {fileID: 5074135652131741807, guid: 00d6d39890456984cbe14c356b50bcc4,
     type: 3}
+  level: 1
   cooldownTime: 0.2
+  owned: 1
