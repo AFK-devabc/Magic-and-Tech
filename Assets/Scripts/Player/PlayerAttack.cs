@@ -39,7 +39,7 @@ public class PlayerAttack : MonoBehaviour
     private IEnumerator AttackCountdown()
     {
         canExcuteAttack = false;
-        yield return new WaitForSeconds(weapon.cooldownTime);
+        yield return new WaitForSeconds(weapon.stats[weapon.level].cooldownTime);
         canExcuteAttack = true;
     }
 

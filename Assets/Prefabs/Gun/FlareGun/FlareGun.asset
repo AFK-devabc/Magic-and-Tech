@@ -21,5 +21,7 @@ MonoBehaviour:
   weaponPrefab: {fileID: 5074135652131741807, guid: 00d6d39890456984cbe14c356b50bcc4,
     type: 3}
   level: 1
-  cooldownTime: 0.2
+  stats:
+  - {fileID: 11400000, guid: f9de61416ddd8d446a7bbed6c523e276, type: 2}
+  - {fileID: 11400000, guid: a5e59bd738241b84ea65201684a26ea8, type: 2}
   owned: 1

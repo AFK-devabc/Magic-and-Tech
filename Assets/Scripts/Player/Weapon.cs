@@ -29,8 +29,7 @@ public class Weapon : ScriptableObject
 
     [Header("-----------PROPERTY------------")]
     public int level;
-    public float cooldownTime;
-
+    public List<ProjectileStats> stats;
     [Header("-----------OWNED------------")]
     public bool owned;
 }

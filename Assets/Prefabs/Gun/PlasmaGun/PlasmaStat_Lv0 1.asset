@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc898c112432d564091cfe667786cb5f, type: 3}
-  m_Name: ProjectilesStats
+  m_Name: PlasmaStat_Lv0 1
   m_EditorClassIdentifier: 
   id: 1
   movSpeed: 10
@@ -20,3 +20,4 @@ MonoBehaviour:
   damage: 1
   lifeTime: 1
   shouldPlayHitEffect: 0
+  cooldownTime: 1

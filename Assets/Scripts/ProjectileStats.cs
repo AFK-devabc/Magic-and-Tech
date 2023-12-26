@@ -14,4 +14,5 @@ public class ProjectileStats : ScriptableObject
     public int damage;
     public float lifeTime;
     public bool shouldPlayHitEffect;
+    public float cooldownTime;
 }
