@@ -9,6 +9,8 @@ public class SETTING_Window : MonoBehaviour
     [Header("----------COMPONENT------------")]
     [SerializeField] Dropdown dropdownResolution;
 
+    [SerializeField] GameObject parentW;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +43,10 @@ public class SETTING_Window : MonoBehaviour
 
     public void OnExitBtnClick()
     {
+        if(parentW != null)
+        {
+            parentW.SetActive(true);
+        }
         this.gameObject.SetActive(false);
     }
 }
